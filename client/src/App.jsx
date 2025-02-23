@@ -1,11 +1,14 @@
 import { useState,useEffect } from 'react'
 import './App.css'
 import axios from 'axios';
+
+import './App.css';
+import RegisterForm from './RegisterForm';
 function App() {
 const [message,setMessage] = useState('')
 useEffect(()=>{
 //Fetch ApI
-axios.get("http://localhost:8000/")
+axios.get("http://localhost:9000/")
 .then(response => {
 setMessage(response.data)
 })
@@ -15,10 +18,8 @@ setMessage(error.message)
 },[])
 return (
 <>
-<h1>Welcome to MERN Full Stack</h1>
-<div>
-Server Response: {message}
-</div>
+<h1 className='text-blue-500'>Welcome to Electricity Board Management</h1>
+<RegisterForm/>
 </>
 )
 }
